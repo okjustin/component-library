@@ -1,14 +1,14 @@
-.cardWrapper {
-  height: 16rem;
-  width: 20rem;
-  perspective: 500px;
-  
-  &:hover .cardInner {
+.flipCard {
+  perspective: 1000px;
+  width: 100%;
+  height: 100%;
+
+  &:hover .inner {
     transform: rotateY(180deg);
   }
 }
 
-.cardInner {
+.inner {
   height: 100%;
   width: 100%;
   transition: transform 1s;
@@ -16,32 +16,17 @@
   position: relative;
 }
 
-.cardFront, .cardBack {
+.front,
+.back {
   position: absolute;
   inset: 0;
-  border-radius: 1rem;
-  background-color: #1c1917;
   transform-style: preserve-3d;
   backface-visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
-  color: white;
-  text-align: center;
 }
 
-.cardBack {
+.back {
   transform: rotateY(180deg);
-}
-
-.cardContent {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transform-style: preserve-3d;
-  transform: translateZ(50px);
 }

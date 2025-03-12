@@ -1,24 +1,20 @@
-import React from 'react';
-import styles from './FlipCard.module.scss';
+import React from "react";
+import styles from "./FlipCard.module.scss";
 
 const FlipCard = ({ children }) => {
   return (
-    <div className={styles.cardWrapper}>
-      <div className={styles.cardInner}>{children}</div>
+    <div className={styles.flipCard}>
+      <div className={styles.inner}>{children}</div>
     </div>
   );
 };
 
 const Front = ({ children }) => (
-  <div className={styles.cardFront}>
-    <div className={styles.cardContent}>{children}</div>
-  </div>
+  <div className={styles.front}>{children}</div>
 );
 
 const Back = ({ children }) => (
-  <div className={styles.cardBack}>
-    <div className={styles.cardContent}>{children}</div>
-  </div>
+  <div className={styles.back}>{children}</div>
 );
 
 FlipCard.Front = Front;
