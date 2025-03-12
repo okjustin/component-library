@@ -7,14 +7,15 @@ export default function App() {
       <h2>Flip card</h2>
 
       <FlipCard>
-        <div>
+        <FlipCard.Front>
           <h3>Front Title</h3>
           <p>Front Description</p>
-        </div>
-        <div>
+        </FlipCard.Front>
+        <FlipCard.Back>
           <p>Back content here</p>
-        </div>
+        </FlipCard.Back>
       </FlipCard>
+
     </>
   );
 }
