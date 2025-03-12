@@ -1,28 +1,20 @@
-import FlipCard from "./components/FlipCard";
+import FlipCard from "./components/FlipCard/FlipCard";
+// import styles from "./App.module.scss";
 
 export default function App() {
   return (
     <>
       <h2>Flip card</h2>
 
-      <div className="card-container">
-        <FlipCard>
-          <FlipCard.Front>
-            <div className="side">
-              <h1>Front</h1>
-
-              <p>This is the front of the card</p>
-            </div>
-          </FlipCard.Front>
-          <FlipCard.Back>
-            <div className="side">
-              <h1>Back</h1>
-
-              <p>This is the back of the card</p>
-            </div>
-          </FlipCard.Back>
-        </FlipCard>
-      </div>
+      <FlipCard>
+        <div>
+          <h3>Front Title</h3>
+          <p>Front Description</p>
+        </div>
+        <div>
+          <p>Back content here</p>
+        </div>
+      </FlipCard>
     </>
   );
 }
