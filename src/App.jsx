@@ -1,11 +1,15 @@
 import FlipCard from './components/FlipCard/FlipCard';
 import styles from './App.module.scss';
 import reactLogo from './assets/react.svg';
+import TabbedContainer from './components/TabbedContainer/TabbedContainer';
+import Tabs from './components/TabbedContainer/Tabs';
+import Tab from './components/TabbedContainer/Tab';
+import Container from './components/TabbedContainer/Container';
 
 export default function App() {
   return (
     <>
-      <h2>Flip Card</h2>
+      {/* <h2>Flip Card</h2>
 
       <div className={styles.cardContainer}>
         <FlipCard>
@@ -22,7 +26,20 @@ export default function App() {
             </div>
           </FlipCard.Back>
         </FlipCard>
-      </div>
+      </div> */}
+
+      <h2>Tabbed container</h2>
+
+      <TabbedContainer className={styles.tabbedContainer}>
+        <Tabs className={styles.tabs}>
+          <Tab selection="1">1</Tab>
+          <Tab selection="2">2</Tab>
+          <Tab selection="3">3</Tab>
+        </Tabs>
+        <Container selection="1">1</Container>
+        <Container selection="2">2</Container>
+        <Container selection="3">3</Container>
+      </TabbedContainer>
     </>
   );
 }

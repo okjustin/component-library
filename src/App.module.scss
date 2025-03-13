@@ -20,3 +20,22 @@
 .cardContent * {
   transform: translateZ(50px);
 }
+
+
+.tabbedContainer {
+  display: flex;
+  flex-direction: column;
+
+  .tabs {
+    display: flex;
+    justify-content: flex-start;
+
+    div {
+      background-color: #CD7FD1;
+    }
+
+    :global(.selected) {
+      background-color: #D54051;
+    }
+  }
+}
