@@ -28,7 +28,7 @@ export default function App() {
         </FlipCard>
       </div> */}
 
-      <h2>Tabbed container</h2>
+      {/* <h2>Tabbed container</h2>
 
       <TabbedContainer className={styles.tabbedContainer}>
         <Tabs className={styles.tabs}>
@@ -39,7 +39,7 @@ export default function App() {
         <Container selection="1">1</Container>
         <Container selection="2">2</Container>
         <Container selection="3">3</Container>
-      </TabbedContainer>
+      </TabbedContainer> */}
     </>
   );
 }
