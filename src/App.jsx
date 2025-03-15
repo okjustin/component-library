@@ -6,6 +6,11 @@ import Tabs from './components/TabbedContainer/Tabs';
 import Tab from './components/TabbedContainer/Tab';
 import Container from './components/TabbedContainer/Container';
 
+import Carousel from './components/Carousel/Carousel';
+import Slide from './components/Carousel/Slide';
+import NavigationButton from './components/Carousel/NavigationButton';
+import PositionIndicator from './components/Carousel/PositionIndicator';
+
 export default function App() {
   return (
     <>
@@ -40,6 +45,37 @@ export default function App() {
         <Container selection="2">2</Container>
         <Container selection="3">3</Container>
       </TabbedContainer> */}
+
+      <h2>Carousel</h2>
+
+      <Carousel className={styles.carousel}>
+        <Slide index="0" className={styles.slide}>
+          <div>
+            Slide 1 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quod voluptatem odit temporibus repellendus debitis, iste consectetur exercitationem et. Similique, repellat laudantium recusandae ratione minima quae aliquam explicabo veniam cum!
+          </div>
+          <NavigationButton direction="prev" className={styles.navButton}>Prev</NavigationButton>
+          <NavigationButton direction="next" className={styles.navButton}>Next</NavigationButton>
+          <PositionIndicator className={styles.positionIndicator} />
+        </Slide>
+
+        <Slide index="1" className={styles.slide}>
+          <div>
+            Slide 2 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quod voluptatem odit temporibus repellendus debitis, iste consectetur exercitationem et. Similique, repellat laudantium recusandae ratione minima quae aliquam explicabo veniam cum!
+          </div>
+          <NavigationButton direction="prev" className={styles.navButton}>Prev</NavigationButton>
+          <NavigationButton direction="next" className={styles.navButton}>Next</NavigationButton>
+          <PositionIndicator className={styles.positionIndicator} />
+        </Slide>
+
+        <Slide index="2" className={styles.slide}>
+          <div>
+            Slide 3 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quod voluptatem odit temporibus repellendus debitis, iste consectetur exercitationem et. Similique, repellat laudantium recusandae ratione minima quae aliquam explicabo veniam cum!
+          </div>
+          <NavigationButton direction="prev" className={styles.navButton}>Prev</NavigationButton>
+          <NavigationButton direction="next" className={styles.navButton}>Next</NavigationButton>
+          <PositionIndicator className={styles.positionIndicator} />
+        </Slide>
+      </Carousel>
     </>
   );
 }

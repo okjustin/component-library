@@ -2,15 +2,18 @@ import { CarouselContext } from './Carousel';
 import { useContext } from 'react';
 import classNames from 'classnames';
 
-export default function Slide({ children, className }) {
-  // Get the slides from the context
+export default function Slide({ children, index, className }) {
   const { slides, currentSlide } = useContext(CarouselContext);
-  const slide = slides[currentSlide];
-  if (slide !== children) return null
+  const selectedSlide = slides[currentSlide];
+  const thisSlide = slides[index];
+  const isSelected = selectedSlide === thisSlide;
 
-  // Find this slide in there
-  // If this slide matches the current slide from the context, render it, otherwise don't
+  console.log(selectedSlide);
+  console.log(thisSlide);
+  console.log(isSelected);
+
   return (
+    isSelected &&
     <div className={classNames(className)}>
       {children}
     </div>
