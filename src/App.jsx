@@ -80,6 +80,7 @@ export default function App() {
       </Carousel> */}
 
       <h2>Contact Form</h2>
+      
       <ContactForm />
     </>
   );

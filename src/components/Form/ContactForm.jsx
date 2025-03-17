@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SubmitButton from './SubmitButton';
 
 export default function ContactForm(){
   const [formData, setFormData] = useState({
@@ -50,6 +51,7 @@ export default function ContactForm(){
   };
 
   const handleSubmit = async (formData) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log(`Submitted! ${formData}`)
   }
 
@@ -87,7 +89,7 @@ export default function ContactForm(){
         />
         {touched.message && errors.message && <span>{errors.message}</span>}
       </div>
-      <button type="submit">Submit</button>
+      <SubmitButton />
     </form>
   )
 }
