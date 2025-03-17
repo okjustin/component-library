@@ -11,6 +11,8 @@ import Slide from './components/Carousel/Slide';
 import NavigationButton from './components/Carousel/NavigationButton';
 import PositionIndicator from './components/Carousel/PositionIndicator';
 
+import ContactForm from './components/Form/ContactForm';
+
 export default function App() {
   return (
     <>
@@ -46,7 +48,7 @@ export default function App() {
         <Container selection="3">3</Container>
       </TabbedContainer> */}
 
-      <h2>Carousel</h2>
+      {/* <h2>Carousel</h2>
 
       <Carousel className={styles.carousel}>
         <Slide index="0" className={styles.slide}>
@@ -75,7 +77,10 @@ export default function App() {
           <NavigationButton direction="next" className={styles.navButton}>Next</NavigationButton>
           <PositionIndicator className={styles.positionIndicator} />
         </Slide>
-      </Carousel>
+      </Carousel> */}
+
+      <h2>Contact Form</h2>
+      <ContactForm />
     </>
   );
 }
