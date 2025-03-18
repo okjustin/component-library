@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import SubmitButton from './SubmitButton';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
 export default function ContactForm(){
   const [formData, setFormData] = useState({
     name: '',
@@ -65,7 +67,7 @@ export default function ContactForm(){
 
       console.log(JSON.stringify(json));
 
-      const response = await fetch('http://localhost:3001/api/contact', {
+      const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(json),
