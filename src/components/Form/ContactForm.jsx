@@ -10,6 +10,8 @@ export default function ContactForm(){
 
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
+  const [serverMessage, setServerMessage] = useState(null);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const validate = (field, value) => {
     let error;
@@ -46,14 +48,43 @@ export default function ContactForm(){
   const handleBlur = (e) => {
     const { name, value } = e.target;
     setTouched((prev) => ({ ...prev, [name]: true }));
+
     const error = validate(name, value);
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const handleSubmit = async (formData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(`Submitted! ${formData}`)
-  }
+    setServerMessage(null);
+    setIsSuccess(false);
+
+    try {
+      const json = {};
+      Array.from(formData.entries()).forEach(([key, value]) => {
+        json[key] = value;
+      })
+
+      console.log(JSON.stringify(json));
+
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(json),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        setServerMessage(result.error || 'Something went wrong.');
+      } else {
+        setServerMessage(result.message);
+        setIsSuccess(true);
+        setFormData({ name: '', email: '', message: '' });
+        setTouched({});
+      }
+    } catch (error) {
+      setServerMessage('Failed to connect to the server.');
+    }
+  };
 
   return (
     <form action={handleSubmit}>
@@ -89,7 +120,14 @@ export default function ContactForm(){
         />
         {touched.message && errors.message && <span>{errors.message}</span>}
       </div>
+
       <SubmitButton />
+
+      {serverMessage && (
+        <div style={{ color: isSuccess ? 'green' : 'red', marginTop: '10px' }}>
+          {serverMessage}
+        </div>
+      )}
     </form>
   )
 }
