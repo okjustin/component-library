@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SubmitButton from './SubmitButton';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 export default function ContactForm(){
   const [formData, setFormData] = useState({
@@ -66,6 +66,8 @@ export default function ContactForm(){
       })
 
       console.log(JSON.stringify(json));
+      console.log(`Using ${API_URL}`);
+      console.log(`Env var is ${import.meta.env.REACT_APP_API_URL}`);
 
       const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
